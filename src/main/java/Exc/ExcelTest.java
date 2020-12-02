@@ -10,7 +10,7 @@ import java.util.List;
 public class ExcelTest implements ExcelTestInterface {
 
     public List<String> ReadExcelFile() throws IOException, CsvValidationException {
-    CSVReader reader = new CSVReader(new FileReader("C:\\Users\\Kirl\\IdeaProjects\\Lab1Excel\\src\\main\\resources\\Excel.csv"));
+    CSVReader reader = new CSVReader(new FileReader("src\\main\\resources\\Excel.csv"));
     String[] nextLine;
     List<String> ListQuestion = new ArrayList<>(10);
     int i = 0;
