@@ -13,7 +13,7 @@ public class TestSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         TrQuestion trQuestion = context.getBean("TrQuestion", TrQuestion.class);
         TreatmentQuestion testAssemble = context.getBean("TreatmentQuestion", TreatmentQuestion.class);
-        testAssemble.TestAssemble(trQuestion.getTrQuestion());
+        testAssemble.TestAssemble(trQuestion.getListQuestion());
         context.close();
     }
 }
