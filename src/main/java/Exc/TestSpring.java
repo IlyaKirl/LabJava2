@@ -1,19 +1,20 @@
 package Exc;
 
-import TransferQuestion.TrQuestion;
 import TransferQuestion.TreatmentQuestion;
 import com.opencsv.exceptions.CsvException;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ImportResource;
 import java.io.IOException;
 
+@SpringBootApplication
+@ImportResource("classpath:applicationContext.xml")
 public class TestSpring {
     public static void main(String[] args) throws IOException, CsvException {
 
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        TrQuestion trQuestion = context.getBean("TrQuestion", TrQuestion.class);
-        TreatmentQuestion testAssemble = context.getBean("TreatmentQuestion", TreatmentQuestion.class);
-        testAssemble.TestAssemble(trQuestion.getListQuestion());
-        context.close();
+        ApplicationContext context = SpringApplication.run(TestSpring.class, args);
+        TreatmentQuestion TestRun = context.getBean(TreatmentQuestion.class);
+        TestRun.run();
     }
 }
